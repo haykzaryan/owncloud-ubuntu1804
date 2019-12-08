@@ -3,20 +3,19 @@
 
 apt-get update
 
-sudo apt install php libapache2-mod-php apache2
+sudo apt -y install php libapache2-mod-php apache2
 
-sudo apt install smbclient
+sudo apt -y install smbclient
 
-sudo apt install redis-server
+sudo apt -y install redis-server
 
-sudo apt install unzip
+sudo apt -y install unzip
 
-sudo apt install php-mysql php-mbstring php-gettext php-intl php-redis
-php-imagick php-igbinary php-gmp php-curl php-gd php-zip php-imap php-ldap php-bz2 php-phpseclib
+sudo apt -y install php-mysql php-mbstring php-gettext php-intl php-redis php-imagick php-igbinary php-gmp php-curl php-gd php-zip php-imap php-ldap php-bz2 php-phpseclib
 
 systemctl restart apache2
 
-sudo apt-get install software-properties-common
+sudo apt-get -y install software-properties-common
 
 sudo apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xF1656F24C74CD1D8
 
@@ -24,9 +23,9 @@ sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://kozyatagi.mirror.
 
 sudo apt update
 
-sudo apt install mariadb-server
+sudo apt -y install mariadb-server
 
-sudo apt install phpmyadmin
+sudo apt -y install phpmyadmin
 
 wget -nv https://download.owncloud.org/download/repositories/production/Ubuntu_18.04/Release.key -O Release.key
 apt-key add - < Release.key
@@ -35,4 +34,9 @@ echo 'deb http://download.owncloud.org/download/repositories/production/Ubuntu_1
 
 apt-get update
 
-apt-get install owncloud-files
+apt-get -y install owncloud-files
+
+sed -i 's/html//' /etc/apache2/sites-available/000-default.conf
+sed -i 's/html//' /etc/apache2/sites-available/default-ssl.conf
+
+
